@@ -1,0 +1,7 @@
+<form (ngSubmit)="createPost(title.value, thumbnailUrl.value, content.value)">
+    <input type="text" #title placeholder="Title">
+    <input type="text" #thumbnailUrl placeholder="Thumbnail URL">
+    <textarea #content placeholder="Content"></textarea>
+    <button type="submit">Create Post</button>
+  </form>
+  
