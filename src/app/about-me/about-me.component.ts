@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./about-me.component.css']
 })
 export class AboutMeComponent {
-
+  // Metod som hanterar kontaktformulärets 'submit'-event
+  onSubmit(form: any): void {
+    // Loggar formens värden till konsolen när formuläret skickas
+    console.log('Formulärdata:', form.value);
+  }
 }

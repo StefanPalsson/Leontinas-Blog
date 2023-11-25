@@ -1,7 +1,30 @@
-<div *ngFor="let post of posts">
-    <h2>{{ post.title }}</h2>
-    <img [src]="post.thumbnailUrl" alt="Thumbnail">
-    <!-- Lägg till en routerLink till blogginläggets detaljsida -->
-    <a [routerLink]="['/post', post.id]">Read more</a>
+<div class="posts-container">
+  <!-- Visar huvudinlägget om det finns några inlägg -->
+  <div *ngIf="posts.length > 0" class="post-preview">
+    <!-- Titel och miniatyrbild för det första inlägget -->
+    <h2>{{ posts[0].title }}</h2>
+    <img [src]="posts[0].thumbnailUrl" alt="{{ posts[0].title }}" class="post-thumbnail">
+    <!-- Knapp för att navigera till detaljvy av inlägget -->
+    <button [routerLink]="['/post', posts[0].id]" class="read-more-btn">Läs mer</button>
   </div>
-  
+
+  <!-- Karusell för att visa andra inlägg -->
+  <div class="carousel-container">
+    <!-- Knapp för att bläddra bakåt i karusellen -->
+    <button (click)="navigateCarousel(-1)" class="carousel-control prev">&#10094;</button>
+
+    <!-- Container för karusellbilder -->
+    <div class="carousel-slide-container">
+      <!-- Loopar genom synliga inlägg och visar dem i karusellen -->
+      <div *ngFor="let post of visiblePosts" class="carousel-slide">
+        <img [src]="post.thumbnailUrl" alt="{{ post.title }}" class="carousel-slide-thumbnail">
+        <!-- Titel och läs mer-knapp för varje inlägg i karusellen -->
+        <div class="carousel-text">{{ post.title }}</div>
+        <button [routerLink]="['/post', post.id]" class="carousel-read-more-btn">Läs mer</button>
+      </div>
+    </div>
+
+    <!-- Knapp för att bläddra framåt i karusellen -->
+    <button (click)="navigateCarousel(1)" class="carousel-control next">&#10095;</button>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+/* footer.component.css */
+.blog-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #827d7d; /* Uppdaterad bakgrundsfärg */
+  border-top: 1px solid #e7e7e7;
+  padding: 10px;
+  text-align: center;
+  color: white; /* Sätt textfärgen till vit för bättre kontrast */
+}
+
+.blog-footer p {
+  margin: 0;
+  order: 1; /* Sätter texten till att vara den första i flexbox-ordningen */
+}
+
+.social-links {
+  order: 2; /* Sätter sociala länkarna till att vara den andra i ordningen */
+  margin-bottom: 0; /* Tar bort margin från sociala länkarna */
+}
+
+.social-link {
+  margin: 0 10px;
+  color: white; /* Sätt ikonernas färg till vit för bättre kontrast */
+  font-size: 1.5em; /* Storleken på ikonerna */
+}
+
+.social-link:hover,
+.social-link:focus {
+  color: #007bff; /* Färgändring vid hover kan behöva justeras för att synas på den mörkare bakgrunden */
+  text-decoration: none;
+}
+
+/* Om du vill att ikonerna ska "poppa" lite vid hover, lägg till följande */
+.social-link:hover {
+  transform: scale(1.1); /* Förstorar ikonerna lite grann */
+  transition: transform 0.2s ease-in-out; /* Ger en mjuk övergångseffekt */
+}

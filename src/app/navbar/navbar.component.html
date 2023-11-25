@@ -1,1 +1,22 @@
-<p>navbar works!</p>
+<nav class="navbar">
+  <div class="navbar-brand">Lilla Lejoninnan</div>
+
+  <!-- Länkar -->
+  <div class="nav-links">
+    <!-- Länk -->
+    <a routerLink="/home" routerLinkActive="active-link">Hem</a>
+    <!-- Länk -->
+    <a routerLink="/about" routerLinkActive="active-link">Om Mig</a>
+    <!-- Länk för att skapa inlägg, endast synlig för ägaren -->
+    <a *ngIf="perspectiveService.activePerspective === 'owner'" routerLink="/owner/create" routerLinkActive="active-link">Skapa Inlägg</a>
+  </div>
+
+  <!-- Knapp för att växla mellan användar- och ägarperspektiv -->
+  <button
+    (click)="togglePerspective()"
+    [ngClass]="{'active-user': perspectiveService.activePerspective === 'user', 'active-owner': perspectiveService.activePerspective === 'owner'}"
+    class="perspective-toggle">
+    <!-- Texten på knappen ändras beroende på aktivt perspektiv -->
+    {{ perspectiveService.activePerspective === 'user' ? 'Byt till Ägare' : 'Byt till Användare' }}
+  </button>
+</nav>

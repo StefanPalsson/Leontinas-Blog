@@ -1,13 +1,4 @@
-<button
-  class="perspective-toggle"
-  [class.active-user]="activePerspective === 'user'"
-  [class.active-owner]="activePerspective === 'owner'"
-  (click)="togglePerspective()">
-  Switch to {{ activePerspective === 'user' ? 'Owner' : 'User' }} Perspective
-</button>
-
-<!-- Du kan använda ngIf för att visa/dölja element baserat på det aktiva perspektivet -->
-<router-outlet *ngIf="activePerspective === 'user'"></router-outlet>
-<div *ngIf="activePerspective === 'owner'">
-  <!-- Lägg till ägarens vyer här eller en annan router-outlet som hanterar ägarens rutter -->
-</div>
+<app-header></app-header>
+<app-navbar (perspectiveToggle)="togglePerspective()"></app-navbar>
+<router-outlet></router-outlet>
+<app-footer></app-footer>

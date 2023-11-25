@@ -1,7 +1,25 @@
-<form (ngSubmit)="createPost(title.value, thumbnailUrl.value, content.value)">
-    <input type="text" #title placeholder="Title">
-    <input type="text" #thumbnailUrl placeholder="Thumbnail URL">
-    <textarea #content placeholder="Content"></textarea>
-    <button type="submit">Create Post</button>
+<div class="create-post-container">
+  <!-- Formuläret använder Angulars template-driven formulär för att skapa ett nytt inlägg -->
+  <form #postForm="ngForm" (ngSubmit)="createPost(postForm.value)">
+    <!-- Grupp för titelinput, med label och textfält -->
+    <div class="form-group">
+      <label for="title">Titel:</label>
+      <input type="text" class="form-control" id="title" name="title" ngModel required>
+    </div>
+    
+    <!-- Grupp för URL till miniatyrbild, med label och textfält -->
+    <div class="form-group">
+      <label for="thumbnailUrl">Thumbnail URL:</label>
+      <input type="text" class="form-control" id="thumbnailUrl" name="thumbnailUrl" ngModel required>
+    </div>
+    
+    <!-- Grupp för innehållstext, med label och textarea -->
+    <div class="form-group">
+      <label for="content">Innehåll:</label>
+      <textarea class="form-control" id="content" name="content" ngModel required rows="5"></textarea>
+    </div>
+    
+    <!-- Skicka-knapp som är inaktiverad tills formuläret är giltigt -->
+    <button type="submit" class="btn btn-primary" [disabled]="!postForm.valid">Skapa Inlägg</button>
   </form>
-  
+</div>

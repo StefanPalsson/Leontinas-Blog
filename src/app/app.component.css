@@ -1,6 +1,3 @@
-/* app.component.css */
-
-/* Grundläggande stil för knappen */
 .perspective-toggle {
     padding: 10px 20px;
     background-color: #007bff;
@@ -11,18 +8,16 @@
     font-size: 16px;
     transition: background-color 0.3s;
   }
-  
-  /* Hover-effekt för knappen */
+
   .perspective-toggle:hover {
     background-color: #0056b3;
   }
-  
-  /* Aktiv stil för knappen, om du vill markera vilket perspektiv som är aktivt */
+
   .perspective-toggle.active-user {
-    background-color: #28a745; /* Grön för användare */
+    background-color: #28a745;
   }
   
   .perspective-toggle.active-owner {
-    background-color: #dc3545; /* Röd för ägaren */
+    background-color: #dc3545;
   }
   

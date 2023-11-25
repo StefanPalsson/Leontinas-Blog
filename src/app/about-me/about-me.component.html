@@ -1,1 +1,30 @@
-<p>about-me works!</p>
+<div class="about-me-background">
+  <div class="about-me-container">
+    <h1>Välkommen till mitt krypin!</h1>
+    <img src="assets/img/About-Me.jpg" alt="Bild av Alice" class="about-me-image">
+    <p>Hej! Mitt namn är <strong>Alice Leontina Susanne Pålsson.</strong> Leontina betyder "Lilla Lejoninnan". född i april 2018. Jag är en person som älskar äventyr och tillbringar mycket tid med min underbara familj, inklusive min lillebror.</p>
+    <p>Mitt intresse för att utforska nya saker och platser har fått mig att starta denna blogg. Här delar jag med mig av mina upplevelser, tankar och de små äventyren i vardagen. Bloggen är en inblick i mitt liv och jag hoppas kunna inspirera och dela glädje genom mina berättelser och bilder.</p>
+    <p>Välkommen till min värld!</p>
+    <h2>Kontakta Mig</h2>
+    <!-- Kontaktformulär-->
+    <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+      <!-- text för namn -->
+      <div class="form-group">
+        <label for="name">Namn:</label>
+        <input type="text" id="name" class="form-control" name="name" ngModel required>
+      </div>
+      <!-- text för e-post -->
+      <div class="form-group">
+        <label for="email">E-post:</label>
+        <input type="email" id="email" class="form-control" name="email" ngModel required>
+      </div>
+      <!-- text för meddelande -->
+      <div class="form-group">
+        <label for="message">Meddelande:</label>
+        <textarea id="message" class="form-control" name="message" ngModel required></textarea>
+      </div>
+      <!-- Skicka-knapp -->
+      <button type="submit" class="btn btn-primary" [disabled]="!contactForm.valid">Skicka</button>
+    </form>
+  </div>
+</div>

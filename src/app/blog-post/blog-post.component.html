@@ -1,1 +1,35 @@
-<p>blog-post works!</p>
+<div class="blog-post-container">
+  <div *ngIf="post" class="blog-post">
+    <!-- Titel och bild för blogginlägget -->
+    <h2>{{ post.title }}</h2>
+    <img [src]="post.thumbnailUrl" alt="Thumbnail" class="blog-post-thumbnail">
+
+    <!-- Innehållet och skapelsedatumet för inlägget -->
+    <p>{{ post.body }}</p>
+    <p>Creation date: {{ post.creationDate | date }}</p>
+
+    <!-- Möjligheten att gilla och ogilla inlägget, en central funktion för användare -->
+    <div class="likes-dislikes">
+      Likes: {{ post.likes }}
+      <button (click)="likePost()" class="like-button">Like</button>
+      Dislikes: {{ post.dislikes }}
+      <button (click)="dislikePost()" class="dislike-button">Dislike</button>
+    </div>
+
+    <!-- Kommentarsfält -->
+    <div class="comments">
+      <h3>Comments:</h3>
+      <ul>
+        <li *ngFor="let comment of post.comments">{{ comment }}</li>
+      </ul>
+      <textarea [(ngModel)]="newComment" class="form-control" rows="4"></textarea>
+      <button (click)="addComment()" class="comment-button">Add Comment</button>
+    </div>
+
+    <!-- Navigation och administrativa funktioner -->
+    <a [routerLink]="['/home']">Back to home</a>
+    <!-- Knapp för att ta bort inlägg visas endast för ägaren -->
+    <button *ngIf="post.id && perspectiveService.activePerspective === 'owner'" (click)="deletePost(post.id)"
+      class="delete-btn">Remove Post</button>
+  </div>
+</div>

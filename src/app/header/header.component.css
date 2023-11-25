@@ -1,0 +1,8 @@
+.blog-header {
+  background-image: url('/assets/img/Leontina Header.png');
+  background-size: cover; /* Täcker hela bredden av headern, kan klippa bort delar av bilden vertikalt */
+  background-position: center; /* Centrerar bilden så viktiga delar visas */
+  background-repeat: no-repeat; /* Förhindrar att bilden upprepas */
+  border-bottom: 1px solid #e7e7e7;
+  height: 300px; /* Eller vilken höjd du önskar */
+}

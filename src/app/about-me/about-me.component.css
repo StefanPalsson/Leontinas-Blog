@@ -1,0 +1,63 @@
+.about-me-background {
+  background-image: url('/assets/img/About-Me-Bakgrund-2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.about-me-container {
+  text-align: center;
+  padding: 20px;
+  background-color: #e7f0d6;
+  color: #6abcae;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 0px auto;
+  font-family: 'Indie Flower', cursive;
+  font-size: 1.1em;
+}
+
+.about-me-image {
+  max-width: 350px;
+  height: auto;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  border: 3px solid #8c837b;
+}
+
+.about-me-container p {
+  font-size: 1.2em;
+  line-height: 1.6;
+}
+
+.about-me-container strong {
+  color: #6d6875;
+}
+
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #6d6875;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn:disabled {
+  background-color: #ccc;
+}

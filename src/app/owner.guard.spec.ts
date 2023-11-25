@@ -1,17 +1,48 @@
 import { TestBed } from '@angular/core/testing';
-import { CanActivateFn } from '@angular/router';
+import { Router } from '@angular/router';
+import { OwnerGuard } from './owner.guard';
+import { AppComponent } from './app.component'; // Importera AppComponent
 
-import { ownerGuard } from './owner.guard';
+// Skapa en mock för Router
+class MockRouter {
+  navigate = jasmine.createSpy('navigate');
+}
 
-describe('ownerGuard', () => {
-  const executeGuard: CanActivateFn = (...guardParameters) => 
-      TestBed.runInInjectionContext(() => ownerGuard(...guardParameters));
+// Skapa en mock för AppComponent
+class MockAppComponent {
+  activePerspective = 'user';
+}
+
+describe('OwnerGuard', () => {
+  let guard: OwnerGuard;
+  let mockAppComponent: MockAppComponent;
+  let router: Router;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [
+        OwnerGuard,
+        { provide: Router, useClass: MockRouter },
+        { provide: AppComponent, useClass: MockAppComponent }, // Använd mocken för AppComponent
+      ],
+    });
+    guard = TestBed.inject(OwnerGuard);
+    mockAppComponent = TestBed.inject(AppComponent) as unknown as MockAppComponent; // Casta till MockAppComponent
+    router = TestBed.inject(Router);
   });
 
   it('should be created', () => {
-    expect(executeGuard).toBeTruthy();
+    expect(guard).toBeTruthy();
+  });
+
+  it('should activate when activePerspective is owner', () => {
+    mockAppComponent.activePerspective = 'owner'; // Sätt perspektivet till 'owner'
+    expect(guard.canActivate()).toBe(true);
+  });
+
+  it('should not activate when activePerspective is not owner', () => {
+    mockAppComponent.activePerspective = 'user'; // Sätt perspektivet till 'user'
+    expect(guard.canActivate()).toBe(false);
+    expect(router.navigate).toHaveBeenCalledWith(['/home']); // Förvänta att omdirigering sker
   });
 });

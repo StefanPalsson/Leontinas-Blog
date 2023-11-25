@@ -1,0 +1,58 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-family: 'Indie Flower', cursive;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-family: 'Indie Flower', cursive;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  gap: 5rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  /* margin-right: 1rem; */
+  font-family: 'Indie Flower', cursive;
+  font-size: 1.5rem;
+}
+
+.nav-links a.active-link {
+  font-weight: bold;
+  border-bottom: 2px solid white;
+  font-family: 'Indie Flower', cursive;
+}
+
+.active-user {
+  background-color: #4CAF50;
+}
+
+.active-owner {
+  background-color: #f44336;
+}
+
+.perspective-toggle {
+  border: 1px solid white;
+  background-color: transparent;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Indie Flower', cursive;
+  transition: background-color 0.3s;
+}
+
+.perspective-toggle:hover {
+  opacity: 0.8;
+}

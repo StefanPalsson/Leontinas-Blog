@@ -1,18 +1,19 @@
 import { Component } from '@angular/core';
+import { PerspectiveService } from './perspective.service';
 
 @Component({
-  selector: 'app-root', // Den här selektorn är standard, men du kan ändra den om du vill.
-  templateUrl: './app.component.html', // Sökväg till HTML-mallen för komponenten.
-  styleUrls: ['./app.component.css'] // Sökväg till CSS-stilmallen för komponenten.
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Leontinas-blog'; // Lägg till denna egenskap här
-  // Denna variabel håller koll på vilket perspektiv som är aktivt.
-  // Vi initierar den som 'user' som standard.
-  activePerspective: 'user' | 'owner' = 'user';
+  title = 'Leontinas-blog';
 
-  // En metod för att byta perspektiv
+  // Inject PerspectiveService i konstruktorn
+  constructor(public perspectiveService: PerspectiveService) {}
+
+  // Denna metod anropas när jag vill växla perspektiv
   togglePerspective() {
-    this.activePerspective = this.activePerspective === 'user' ? 'owner' : 'user';
+    this.perspectiveService.togglePerspective();
   }
 }
